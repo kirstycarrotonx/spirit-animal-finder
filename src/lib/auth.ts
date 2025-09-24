@@ -20,7 +20,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         // Store user data in Supabase
         const { supabase } = await import('./supabase')
         
-        const { data, error } = await supabase
+        const { error } = await supabase
           .from('users')
           .upsert({
             id: user.id,

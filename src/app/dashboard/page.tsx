@@ -3,6 +3,7 @@
 import { useSession, signOut } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
+import Image from 'next/image'
 
 export default function Dashboard() {
   const { data: session, status } = useSession()
@@ -37,9 +38,11 @@ export default function Dashboard() {
         </h1>
         <div className="mb-6">
           {session.user?.image && (
-            <img
+            <Image
               src={session.user.image}
               alt="Profile"
+              width={80}
+              height={80}
               className="w-20 h-20 rounded-full mx-auto mb-4"
             />
           )}
@@ -47,7 +50,7 @@ export default function Dashboard() {
             Hello, {session.user?.name}!
           </p>
           <p className="text-gray-600">
-            You're logged in
+            You&apos;re logged in
           </p>
         </div>
         <button
