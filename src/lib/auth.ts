@@ -4,8 +4,8 @@ import TwitterProvider from 'next-auth/providers/twitter'
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
     TwitterProvider({
-      clientId: process.env.TWITTER_CLIENT_ID!,
-      clientSecret: process.env.TWITTER_CLIENT_SECRET!,
+      clientId: process.env.TWITTER_CLIENT_ID || 'dummy',
+      clientSecret: process.env.TWITTER_CLIENT_SECRET || 'dummy',
       version: '2.0',
       authorization: {
         params: {
